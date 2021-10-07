@@ -13,6 +13,7 @@ namespace KasperFish
         Knight,
         Rook,
         Queen,
-        King
+        King,
+        None
     } 
 }
