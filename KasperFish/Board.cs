@@ -21,11 +21,11 @@ namespace KasperFish
             for (var index1 = 0; index1 < BoardState.GetLength(1); index1++)
             {
                 BoardState[index0, index1] = Piece.None;
-                for (var index0w = 0; index0w < WhitePieces.PieceCount.GetLength(0); index0w++)
-                for (var index1w = 0; index1w < WhitePieces.PieceCount.GetLength(1); index1w++)
+                for (var index0W = 0; index0W < WhitePieces.PieceCount.GetLength(0); index0W++)
+                for (var index1W = 0; index1W < WhitePieces.PieceCount.GetLength(1); index1W++)
                 {
-                    var piece = WhitePieces.PieceCount[index0w, index1w];
-                    BoardState[index0w, index1w] = piece;
+                    var piece = WhitePieces.PieceCount[index0W, index1W];
+                    BoardState[index0W, index1W] = piece;
 
                 }
 
