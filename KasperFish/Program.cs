@@ -6,7 +6,8 @@ namespace KasperFish
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var game = new Board();
+            Console.WriteLine(game.WhitePieces.PieceCount[0, 1]);
         }
     }
 }
