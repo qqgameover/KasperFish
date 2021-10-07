@@ -29,13 +29,18 @@ namespace KasperFish
 
                 }
 
-                for (int i = 0; i < BlackPieces.PieceCount.GetLength(0); i++)
-                for (int j = 0; j < BlackPieces.PieceCount.GetLength(1); j++)
+                for (var i = 0; i < BlackPieces.PieceCount.GetLength(0); i++)
+                for (var j = 0; j < BlackPieces.PieceCount.GetLength(1); j++)
                 {
                     var piece = BlackPieces.PieceCount[i, j];
                     BoardState[i + 6, j] = piece;
                 }
             }
+        }
+
+        public bool IsMoveLegal(Piece pieceMoved)
+        {
+            return true;
         }
     }
 }

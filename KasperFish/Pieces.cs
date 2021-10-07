@@ -48,14 +48,14 @@ namespace KasperFish
                         {
                             1 => index1 switch
                             {
-                                0 or 7 => Piece.Rook,
-                                1 or 6 => Piece.Knight,
-                                2 or 5 => Piece.Bishop,
-                                3 => Piece.Queen,
-                                4 => Piece.King,
+                                0 or 7 => Piece.BRook,
+                                1 or 6 => Piece.BKnight,
+                                2 or 5 => Piece.BBishop,
+                                3 => Piece.BQueen,
+                                4 => Piece.BKing,
                                 _ => PieceCount[index0, index1]
                             },
-                            0 => Piece.Pawn,
+                            0 => Piece.BPawn,
                             _ => PieceCount[index0, index1]
                         };
                     }

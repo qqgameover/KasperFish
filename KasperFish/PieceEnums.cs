@@ -14,6 +14,24 @@ namespace KasperFish
         Rook,
         Queen,
         King,
-        None
-    } 
+        None,
+        BPawn,
+        BBishop,
+        BKnight,
+        BRook,
+        BQueen,
+        BKing,
+    }
+
+    enum Lettering
+    {
+        A,
+        B,
+        C,
+        D,
+        E,
+        F,
+        G,
+        H
+    }
 }
