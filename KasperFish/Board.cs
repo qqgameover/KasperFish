@@ -38,6 +38,45 @@ namespace KasperFish
             }
         }
 
+        public void DrawBoard()
+        {
+            string currentBoard = "";
+            var lettering = "";
+            var numbering = "";
+            for (var index0 = 0; index0 < BoardState.GetLength(0); index0++)
+            {
+                lettering = index0 switch
+                {
+                    0 => Lettering.A.ToString(),
+                    1 => Lettering.B.ToString(),
+                    2 => Lettering.C.ToString(),
+                    3 => Lettering.D.ToString(),
+                    4 => Lettering.E.ToString(),
+                    5 => Lettering.F.ToString(),
+                    6 => Lettering.G.ToString(),
+                    7 => Lettering.H.ToString(),
+                    _ => lettering
+                };
+                for (var index1 = 0; index1 < BoardState.GetLength(1); index1++)
+                {
+                    if (index1 % 8 == 0)
+                    {
+                        currentBoard += "\n";
+                        currentBoard += lettering;
+                    }
+                    var t = BoardState[index0, index1];
+                    currentBoard += ($"{t}").PadLeft(9);
+                }
+            }
+
+            Console.WriteLine($"{currentBoard}");
+            for (int i = 0; i < 8; i++)
+            {
+                numbering += (i + 1).ToString().PadLeft(9);
+            }
+            Console.WriteLine(numbering);
+        }
+
         public bool IsMoveLegal(Piece pieceMoved)
         {
             return true;
