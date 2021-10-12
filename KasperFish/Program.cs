@@ -11,6 +11,9 @@ namespace KasperFish
             game.DrawBoard();
             while (true)
             {
+                var command = Console.ReadLine();
+                Console.Clear();
+                game.DrawBoard();
             }
         }
     }
