@@ -81,5 +81,10 @@ namespace KasperFish
         {
             return true;
         }
+
+        public void HandleCommand(string command)
+        {
+            
+        }
     }
 }
