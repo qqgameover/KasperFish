@@ -84,7 +84,14 @@ namespace KasperFish
 
         public void HandleCommand(string command)
         {
-            
+            if(!IsCommandValid(command)) return;
+        }
+
+        private bool IsCommandValid(string command)
+        {
+            var splitCommand = command.Split(" ");
+            if (splitCommand[0].Length != 2 || splitCommand[1].Length != 2) return false;
+            return true;
         }
     }
 }
