@@ -88,6 +88,31 @@ namespace KasperFish
             var splitCommand = command.Split(" ");
             var startingPos = splitCommand[0].Split("");
             var newPos = splitCommand[1].Split("");
+            var startingNum = GetPosNum(startingPos[0]);
+            var newPosNum = GetPosNum(newPos[0]);
+            MovePiece(startingNum, Convert.ToInt32(startingPos[1]), newPosNum, Convert.ToInt32(newPos[1]));
+        }
+
+        private void MovePiece(int startingNum, int startingPo, int newPosNum, int newPo)
+        {
+            BoardState[newPosNum, newPo] = BoardState[startingNum, startingPo];
+        }
+
+        private int GetPosNum(string num)
+        {
+            var upperCased = num.ToUpper();
+            return upperCased switch
+            {
+                "A" => 0,
+                "B" => 1,
+                "C" => 2,
+                "D" => 3,
+                "E" => 4,
+                "F" => 5,
+                "G" => 6,
+                "H" => 7,
+                _ => 0
+            };
         }
 
         private static bool IsCommandValid(string command)
