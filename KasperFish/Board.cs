@@ -70,7 +70,7 @@ namespace KasperFish
             }
 
             Console.WriteLine($"{currentBoard}");
-            for (int i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)
             {
                 numbering += (i + 1).ToString().PadLeft(9);
             }
@@ -85,13 +85,15 @@ namespace KasperFish
         public void HandleCommand(string command)
         {
             if(!IsCommandValid(command)) return;
+            var splitCommand = command.Split(" ");
+            var startingPos = splitCommand[0].Split("");
+            var newPos = splitCommand[1].Split("");
         }
 
-        private bool IsCommandValid(string command)
+        private static bool IsCommandValid(string command)
         {
             var splitCommand = command.Split(" ");
-            if (splitCommand[0].Length != 2 || splitCommand[1].Length != 2) return false;
-            return true;
+            return splitCommand[0].Length == 2 && splitCommand[1].Length == 2;
         }
     }
 }
