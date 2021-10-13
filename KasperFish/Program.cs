@@ -13,7 +13,7 @@ namespace KasperFish
             {
                 var command = Console.ReadLine();
                 game.HandleCommand(command);
-                Console.Clear();
+                //Console.Clear();
                 game.DrawBoard();
             }
         }

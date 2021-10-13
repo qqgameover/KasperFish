@@ -84,7 +84,11 @@ namespace KasperFish
 
         public void HandleCommand(string command)
         {
-            if(!IsCommandValid(command)) return;
+            if (!IsCommandValid(command))
+            {
+                Console.WriteLine("Nei");
+                return;
+            }
             var splitCommand = command.Split(" ");
             var startingPos = splitCommand[0].Split(".");
             var newPos = splitCommand[1].Split(".");
@@ -95,7 +99,8 @@ namespace KasperFish
 
         private void MovePiece(int startingNum, int startingPo, int newPosNum, int newPo)
         {
-            BoardState[newPosNum, newPo] = BoardState[startingNum, startingPo];
+            BoardState[newPosNum, newPo - 1] = BoardState[startingNum, startingPo - 1];
+            BoardState[startingNum, startingPo - 1] = Piece.None;
         }
 
         private int GetPosNum(string num)
@@ -118,7 +123,7 @@ namespace KasperFish
         private static bool IsCommandValid(string command)
         {
             var splitCommand = command.Split(" ");
-            return splitCommand[0].Length == 2 && splitCommand[1].Length == 2;
+            return splitCommand[0].Length == 3 && splitCommand[1].Length == 3;
         }
     }
 }
