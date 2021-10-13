@@ -86,8 +86,8 @@ namespace KasperFish
         {
             if(!IsCommandValid(command)) return;
             var splitCommand = command.Split(" ");
-            var startingPos = splitCommand[0].Split("");
-            var newPos = splitCommand[1].Split("");
+            var startingPos = splitCommand[0].Split(".");
+            var newPos = splitCommand[1].Split(".");
             var startingNum = GetPosNum(startingPos[0]);
             var newPosNum = GetPosNum(newPos[0]);
             MovePiece(startingNum, Convert.ToInt32(startingPos[1]), newPosNum, Convert.ToInt32(newPos[1]));
@@ -111,7 +111,7 @@ namespace KasperFish
                 "F" => 5,
                 "G" => 6,
                 "H" => 7,
-                _ => 0
+                _ => throw new ArgumentOutOfRangeException()
             };
         }
 
