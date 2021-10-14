@@ -64,35 +64,30 @@ namespace KasperFish
             }
         }
 
-        public bool PawnLegalMove(Piece movedPawn, int newPosNum, int newPos)
+        public bool PawnLegalMove(Piece movedPawn, int startingPosNum, int startingPos, int newPosNum, int newPos)
+        {
+            if (startingPosNum + 2 < newPosNum) return false;
+            return true;
+        }
+        public bool RookLegalMove(Piece movedPawn, int startingPosNum, int startingPos, int newPosNum, int newPos)
         {
             return true;
         }
-
-        public bool RookLegalMove(Piece movedRook, int newPosNum, int newPos)
+        public bool KnightLegalMove(Piece movedPawn, int startingPosNum, int startingPos, int newPosNum, int newPos)
         {
             return true;
         }
-
-        public bool KnightLegalMove(Piece movedKnight, int newPosNum, int newPos)
+        public bool BishopLegalMove(Piece movedPawn, int startingPosNum, int startingPos, int newPosNum, int newPos)
         {
             return true;
         }
-
-        public bool BishopLegalMove(Piece movedBishop, int newPosNum, int newPos)
+        public bool QueenLegalMove(Piece movedPawn, int startingPosNum, int startingPos, int newPosNum, int newPos)
         {
             return true;
         }
-
-        public bool QueenLegalMove(Piece movedQueen, int newPosNum, int newPos)
+        public bool KingLegalMove(Piece movedPawn, int startingPosNum, int startingPos, int newPosNum, int newPos)
         {
             return true;
         }
-
-        public bool KingLegalMove(Piece movedKing, int newPosNum, int newPos)
-        {
-            return true;
-        }
-
     }
 }

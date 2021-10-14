@@ -82,18 +82,18 @@ namespace KasperFish
             if (!DoesPieceBelongToPlayer(pieceMoved)) return false;
             return pieceMoved switch
             {
-                Piece.Pawn => WhitePieces.PawnLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.BPawn => BlackPieces.PawnLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.Rook => WhitePieces.RookLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.BRook => BlackPieces.RookLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.Knight => WhitePieces.KnightLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.BKnight => BlackPieces.KnightLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.Bishop => WhitePieces.BishopLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.BBishop => BlackPieces.BishopLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.King => WhitePieces.KingLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.BKing => BlackPieces.KingLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.Queen => WhitePieces.QueenLegalMove(pieceMoved, newPosNum, newPo),
-                Piece.BQueen => BlackPieces.QueenLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.Pawn => WhitePieces.PawnLegalMove(pieceMoved, startingPosNum, startingPos ,newPosNum, newPo),
+                Piece.BPawn => BlackPieces.PawnLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
+                Piece.Rook => WhitePieces.RookLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
+                Piece.BRook => BlackPieces.RookLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
+                Piece.Knight => WhitePieces.KnightLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
+                Piece.BKnight => BlackPieces.KnightLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
+                Piece.Bishop => WhitePieces.BishopLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
+                Piece.BBishop => BlackPieces.BishopLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
+                Piece.King => WhitePieces.KingLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
+                Piece.BKing => BlackPieces.KingLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
+                Piece.Queen => WhitePieces.QueenLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
+                Piece.BQueen => BlackPieces.QueenLegalMove(pieceMoved, startingPosNum, startingPos, newPosNum, newPo),
                 _ => true
             };
         }
