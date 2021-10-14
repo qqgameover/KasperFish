@@ -63,5 +63,36 @@ namespace KasperFish
                 }
             }
         }
+
+        public bool PawnLegalMove(Piece movedPawn, int newPosNum, int newPos)
+        {
+            return true;
+        }
+
+        public bool RookLegalMove(Piece movedRook, int newPosNum, int newPos)
+        {
+            return true;
+        }
+
+        public bool KnightLegalMove(Piece movedKnight, int newPosNum, int newPos)
+        {
+            return true;
+        }
+
+        public bool BishopLegalMove(Piece movedBishop, int newPosNum, int newPos)
+        {
+            return true;
+        }
+
+        public bool QueenLegalMove(Piece movedQueen, int newPosNum, int newPos)
+        {
+            return true;
+        }
+
+        public bool KingLegalMove(Piece movedKing, int newPosNum, int newPos)
+        {
+            return true;
+        }
+
     }
 }

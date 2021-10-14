@@ -77,10 +77,25 @@ namespace KasperFish
             Console.WriteLine(numbering);
         }
 
-        public bool IsMoveLegal(Piece pieceMoved, int newPosNum, int newPo)
+        public bool IsMoveLegal(Piece pieceMoved, int startingPosNum, int startingPos ,int newPosNum, int newPo)
         {
             if (!DoesPieceBelongToPlayer(pieceMoved)) return false;
-            return true;
+            return pieceMoved switch
+            {
+                Piece.Pawn => WhitePieces.PawnLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.BPawn => BlackPieces.PawnLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.Rook => WhitePieces.RookLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.BRook => BlackPieces.RookLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.Knight => WhitePieces.KnightLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.BKnight => BlackPieces.KnightLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.Bishop => WhitePieces.BishopLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.BBishop => BlackPieces.BishopLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.King => WhitePieces.KingLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.BKing => BlackPieces.KingLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.Queen => WhitePieces.QueenLegalMove(pieceMoved, newPosNum, newPo),
+                Piece.BQueen => BlackPieces.QueenLegalMove(pieceMoved, newPosNum, newPo),
+                _ => true
+            };
         }
 
         private bool DoesPieceBelongToPlayer(Piece pieceMoved)
@@ -107,7 +122,7 @@ namespace KasperFish
 
         private void MovePiece(int startingNum, int startingPo, int newPosNum, int newPo)
         {
-            if(!IsMoveLegal(BoardState[startingNum, startingPo - 1], newPosNum, newPo - 1)) return;
+            if(!IsMoveLegal(BoardState[startingNum, startingPo - 1], startingNum, startingPo - 1, newPosNum, newPo - 1)) return;
             BoardState[newPosNum, newPo - 1] = BoardState[startingNum, startingPo - 1];
             BoardState[startingNum, startingPo - 1] = Piece.None;
         }
