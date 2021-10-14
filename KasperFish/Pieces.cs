@@ -17,6 +17,7 @@ namespace KasperFish
             {
                 case true:
                 {
+                    IsWhite = true;
                     PieceCount = new Piece[2, 8];
                     for (var index0 = 0; index0 < PieceCount.GetLength(0); index0++)
                     for (var index1 = 0; index1 < PieceCount.GetLength(1); index1++)
@@ -40,6 +41,7 @@ namespace KasperFish
                 }
                 case false:
                 {
+                    IsWhite = false;
                     PieceCount = new Piece[2, 8];
                     for (var index0 = 0; index0 < PieceCount.GetLength(0); index0++)
                     for (var index1 = 0; index1 < PieceCount.GetLength(1); index1++)
@@ -66,7 +68,8 @@ namespace KasperFish
 
         public bool PawnLegalMove(Piece movedPawn, int startingPosNum, int startingPos, int newPosNum, int newPos)
         {
-            if (startingPosNum + 2 < newPosNum) return false;
+            var startL = movedPawn == Piece.Pawn ? 2 : -2; 
+            if (startingPosNum + startL < newPosNum) return false;
             return true;
         }
         public bool RookLegalMove(Piece movedPawn, int startingPosNum, int startingPos, int newPosNum, int newPos)
