@@ -77,18 +77,26 @@ namespace KasperFish
             Console.WriteLine(numbering);
         }
 
-        public bool IsMoveLegal(Piece pieceMoved)
+        public bool IsMoveLegal(Piece pieceMoved, int newPosNum, int newPo)
         {
+            if (!DoesPieceBelongToPlayer(pieceMoved)) return false;
             return true;
+        }
+
+        private bool DoesPieceBelongToPlayer(Piece pieceMoved)
+        {
+            return pieceMoved is not (Piece.None or
+                Piece.BBishop or
+                Piece.BKing or
+                Piece.BKnight or
+                Piece.BPawn or
+                Piece.BRook or
+                Piece.BQueen);
         }
 
         public void HandleCommand(string command)
         {
-            if (!IsCommandValid(command))
-            {
-                Console.WriteLine("Nei");
-                return;
-            }
+            if (!IsCommandValid(command)) return;
             var splitCommand = command.Split(" ");
             var startingPos = splitCommand[0].Split(".");
             var newPos = splitCommand[1].Split(".");
@@ -99,11 +107,12 @@ namespace KasperFish
 
         private void MovePiece(int startingNum, int startingPo, int newPosNum, int newPo)
         {
+            if(!IsMoveLegal(BoardState[startingNum, startingPo - 1], newPosNum, newPo - 1)) return;
             BoardState[newPosNum, newPo - 1] = BoardState[startingNum, startingPo - 1];
             BoardState[startingNum, startingPo - 1] = Piece.None;
         }
 
-        private int GetPosNum(string num)
+        private static int GetPosNum(string num)
         {
             var upperCased = num.ToUpper();
             return upperCased switch
