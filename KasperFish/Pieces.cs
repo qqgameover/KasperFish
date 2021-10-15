@@ -68,6 +68,7 @@ namespace KasperFish
 
         public bool PawnLegalMove(Piece movedPawn, int startingPosNum, int startingPos, int newPosNum, int newPos)
         {
+            var firstMove = movedPawn == Piece.Pawn ? 1 : 5;
             var startL = movedPawn == Piece.Pawn ? 2 : -2; 
             if (startingPosNum + startL < newPosNum) return false;
             return true;
